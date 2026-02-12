@@ -1,0 +1,13 @@
+ipykernel
+pandas
+numpy
+scikit-learn
+langchain
+streamlit
+openai
+anthropic
+optuna
+statsmodels
+matplotlib
+seaborn
+joblib

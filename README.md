@@ -22,7 +22,7 @@ This enhanced version of your credit risk model integrates Large Language Models
 ### 1. Install Required Packages
 
 ```bash
-pip install streamlit anthropic joblib numpy pandas scikit-learn
+pip install streamlit openai joblib numpy pandas scikit-learn
 ```
 
 Or create a `requirements.txt`:

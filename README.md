@@ -28,11 +28,11 @@ pip install streamlit anthropic joblib numpy pandas scikit-learn
 Or create a `requirements.txt`:
 ```txt
 streamlit==1.31.0
-anthropic==0.18.0
 joblib==1.3.2
 numpy==1.24.3
 pandas==2.0.3
 scikit-learn==1.3.0
+openai
 ```
 
 Then install:
@@ -79,15 +79,12 @@ load_dotenv()
 ### 4. File Structure
 
 ```
-your_project/
+credit_risk_model/app
 │
-├── main_with_llm.py                    # Enhanced Streamlit app
-├── prediction_helper_with_llm.py       # ML + LLM integration
-├── main.py                             # Original Streamlit app
-├── prediction_helper.py                # Original helper
+├── main.py                    # Enhanced Streamlit app
+├── prediction_llm_helper.py       # ML + LLM integration                          # Original Streamlit app
 ├── artifacts/
 │   └── model_data.joblib              # Your trained model
-└── requirements.txt
 ```
 
 ### 5. Run the Application
@@ -213,74 +210,5 @@ with client.messages.stream(
         st.write(text, end="")
 ```
 
-## 💰 Cost Considerations
 
-**Anthropic Claude Pricing (as of 2024):**
-- Input: ~$3 per million tokens
-- Output: ~$15 per million tokens
-- Average request: ~500 input + 500 output tokens = $0.009 per request
 
-**Cost Optimization:**
-- Cache common responses
-- Use Claude Haiku for simple queries (cheaper)
-- Implement rate limiting
-- Only call LLM for high-value assessments (e.g., loan > ₹10L)
-
-## 🔒 Security Best Practices
-
-1. **Never hardcode API keys** in your code
-2. **Use environment variables** or secure secret management
-3. **Implement rate limiting** to prevent API abuse
-4. **Validate and sanitize** user inputs before sending to LLM
-5. **Log API calls** for audit purposes
-6. **Set up billing alerts** in your LLM provider console
-
-## 🐛 Troubleshooting
-
-### Issue: "API Key not found"
-**Solution:** Ensure environment variable is set correctly. Restart your terminal/IDE after setting.
-
-### Issue: "Rate limit exceeded"
-**Solution:** Implement exponential backoff or use a queuing system for requests.
-
-### Issue: "LLM response is too generic"
-**Solution:** Make your prompt more specific with concrete examples and constraints.
-
-### Issue: "Slow response times"
-**Solution:** 
-- Use async/await for non-blocking calls
-- Cache common responses
-- Use a faster model (Claude Haiku)
-
-## 📈 Future Enhancements
-
-1. **Multi-turn Conversation**: Allow users to ask follow-up questions
-2. **Visual Explanations**: Generate charts explaining risk factors
-3. **Comparative Analysis**: Compare with similar loan applications
-4. **Regulatory Compliance**: Check against lending regulations
-5. **A/B Testing**: Compare LLM vs non-LLM user satisfaction
-6. **Fine-tuning**: Train a custom model on your specific use case
-
-## 📚 Additional Resources
-
-- [Anthropic API Documentation](https://docs.anthropic.com/)
-- [Claude Best Practices](https://docs.anthropic.com/claude/docs/best-practices)
-- [Streamlit Documentation](https://docs.streamlit.io/)
-- [Prompt Engineering Guide](https://www.promptingguide.ai/)
-
-## 🤝 Contributing
-
-Feel free to enhance this integration with:
-- Better prompt engineering
-- Alternative LLM providers
-- Error handling improvements
-- UI/UX enhancements
-- Performance optimizations
-
-## 📄 License
-
-[Your License Here]
-
----
-
-**Note**: This integration is designed to augment, not replace, your credit risk model. Always use LLM outputs as decision support, not as the sole basis for lending decisions.

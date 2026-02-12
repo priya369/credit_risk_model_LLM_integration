@@ -19,7 +19,7 @@ cols_to_scale = model_data['cols_to_scale']
 # Initialize OpenAI client
 openai_client = None
 try:
-    api_key = ""
+    api_key = os.environ.get("openai_api_key")
     if api_key:
         openai_client = OpenAI(api_key=api_key)
 except Exception as e:

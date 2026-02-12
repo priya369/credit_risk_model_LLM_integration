@@ -40,34 +40,34 @@ Then install:
 pip install -r requirements.txt
 ```
 
-### 2. Get Your Anthropic API Key
+### 2. Get Your openai API Key
 
-1. Visit https://console.anthropic.com/
+1. Visit https://platform.openai.com/settings/organization/api-keys
 2. Sign up or log in
 3. Navigate to API Keys section
 4. Create a new API key
-5. Copy the key (starts with `sk-ant-`)
+5. Copy the key (starts with `sk-proj-`)
 
 ### 3. Set Up Environment Variable
 
 **Linux/Mac:**
 ```bash
-export ANTHROPIC_API_KEY='your-api-key-here'
+export openai_api_key='your-api-key-here'
 ```
 
 **Windows (Command Prompt):**
 ```cmd
-set ANTHROPIC_API_KEY=your-api-key-here
+set  openai_api_key=your-api-key-here
 ```
 
 **Windows (PowerShell):**
 ```powershell
-$env:ANTHROPIC_API_KEY='your-api-key-here'
+$env: openai_api_key='your-api-key-here'
 ```
 
 **Or create a `.env` file:**
 ```
-ANTHROPIC_API_KEY=your-api-key-here
+ openai_api_key=your-api-key-here
 ```
 
 Then load it in your code:
